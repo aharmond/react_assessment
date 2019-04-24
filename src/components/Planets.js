@@ -1,6 +1,6 @@
 import React, { Fragment, } from 'react';
 import axios from 'axios';
-import { Modal, Button, } from 'semantic-ui-react';
+import { Modal, Button, Grid, } from 'semantic-ui-react';
 import Planet from './Planet';
 
 class Planets extends React.Component {
@@ -41,24 +41,28 @@ class Planets extends React.Component {
     const { planets } = this.state
     return(
       <>
-      <div>List of Planets</div>
-      <br />
-      {planets.map( (planet, index) => {
-        return (
-          <Fragment key={index}>
-            <Modal
-              trigger={<Button>{planet.name}</Button>}
-            >
-              <Planet 
-                url={planet.url}
-              />
-            </Modal>
-            <br />
-            <br />
-          </Fragment>
-        )
-      })}
-    </>
+        <div>List of Planets</div>
+        <br />
+        <Grid columns={10}>
+          <Grid.Row>
+            {planets.map( (planet, index) => {
+              return (
+                <Grid.Column key={index}>
+                  <Modal
+                    trigger={<Button inverted color="red">{planet.name}</Button>}
+                  >
+                    <Planet 
+                      url={planet.url}
+                    />
+                  </Modal>
+                  <br/>
+                  <br/>
+                </Grid.Column>
+              )
+            })}
+          </Grid.Row>
+        </Grid>
+      </>
     )
   }
 }
