@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, }  from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import People from './components/People';
+import Person from './components/Person';
+import Planets from './components/Planets';
+import Planet from './components/Planet';
+import NoMatch from './components/NoMatch';
+import { Container, } from 'semantic-ui-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <Navbar />
+    <Container>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/people/' component={People} />
+        <Route exact path='/people/:id' component={Person} />
+        <Route exact path='/planets/' component={Planets} />
+        <Route exact path='/planets/:id' component={Planet} />
+        <Route component={NoMatch} />
+      </Switch>
+    </Container>
+  </>
+);
 
 export default App;
