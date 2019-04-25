@@ -55,7 +55,9 @@ class Planet extends React.Component {
                       key={index}
                       trigger={
                         <List.Item>
-                          {resident.name}
+                          <a>
+                            {resident.name}
+                          </a>
                         </List.Item>
                       }>
                       <Person url={ resident.url } />

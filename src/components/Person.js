@@ -33,14 +33,14 @@ class Person extends React.Component {
         <Modal.Header>
           {name}
         </Modal.Header>
-        <Modal.Content>
+        <Modal.Content >
           <Modal.Description>
             <div>
               Gender: {gender} | Birth Year: {birth_year}
             </div>
             <div>
               Species: {species} | Homeworld: 
-                <Modal trigger={<span>{homeworld}</span>}>
+                <Modal trigger={<a> {homeworld} </a>}>
                   <Planet url={homeworld_url} />
                 </Modal>
             </div>

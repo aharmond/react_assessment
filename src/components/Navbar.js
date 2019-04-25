@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 
 class Navbar extends React.Component {
@@ -9,13 +9,11 @@ class Navbar extends React.Component {
     const { activeItem } = this.state
 
     return (
-      <Menu>
+      <Menu inverted>
         <Menu.Item
-          as={ NavLink }
+          as={ Link }
           to='/'
           name='Home'
-          active={activeItem === 'Home'}
-          onClick={this.setActiveItem}
         />
         <Menu.Item
           as={ NavLink }
